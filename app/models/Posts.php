@@ -3,8 +3,8 @@
 class Posts extends \Phalcon\Mvc\Model {
 
     private $id;
-    protected $postTitle;
-    protected $postContent;
+    private $postTitle;
+    private $postContent;
 
     public function getTitle() {
         return $this->postTitle;
