@@ -6,6 +6,10 @@ class Comments extends \Phalcon\Mvc\Model {
     private $commenter_email;
     private $commenter_content;
 
+    public function initialize() {
+        $this->hasOne('id','PostComments','comment_id');
+    }
+
     public function id() {
         return $this->id;
     }

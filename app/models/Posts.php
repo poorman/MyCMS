@@ -6,6 +6,10 @@ class Posts extends \Phalcon\Mvc\Model {
     private $postTitle;
     private $postContent;
 
+    public function initialize() {
+        $this->hasMany('id', 'PostComment','post_id');
+    }
+
     public function getTitle() {
         return $this->postTitle;
     }
