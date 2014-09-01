@@ -1,0 +1,13 @@
+<?php echo $this->tag->form('register/save') ?>
+
+<h1>Register Admin</h1>
+
+<label for="username">Username</label>
+<?php echo $this->tag->textField(array("username", "size" => "30")) ?>
+
+<label for="password">Password</label>
+<?php echo $this->tag->passwordField(array("password", "size" => "30")) ?>
+
+<?php echo $this->tag->submitButton(array('Register')) ?>
+
+</form>

@@ -6,4 +6,4 @@ class PostComments extends \Phalcon\Mvc\Model {
         $this->belongsTo('post_id','Posts','id');
         $this->belongsTo('comment_id','Comments','id');
     }
-} 
+}
