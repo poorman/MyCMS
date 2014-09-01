@@ -4,7 +4,9 @@ class LoginController extends \Phalcon\Mvc\Controller
 {
 
     public function indexAction() {
-
+        if ($this->session->get('user_id')) {
+            return (new \Phalcon\Http\Response())->redirect('admin');
+        }
     }
 
     private function _registerSession($user)
@@ -27,17 +29,9 @@ class LoginController extends \Phalcon\Mvc\Controller
             ));
 
             if ($user != false) {
-
                 $this->_registerSession($user);
-                $this->flash->success('Welcome ' . $user->username);
-                echo "Logged in: " . $this->session->get('username');
-
-
-                echo "redirecting";
-                //redirect to a webpage
                 $response = new \Phalcon\Http\Response();
-                return $response->redirect("admin/index");
-
+                return $response->redirect("admin");
             } else {
                 $this->flash->error('Wrong email/password');
             }
@@ -46,5 +40,9 @@ class LoginController extends \Phalcon\Mvc\Controller
 
     }
 
+    public function logoutAction() {
+        $this->session->destroy();
+        return (new \Phalcon\Http\Response())->redirect('loging');
+    }
 }
 
