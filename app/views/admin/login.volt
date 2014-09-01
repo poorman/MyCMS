@@ -1,4 +1,4 @@
-{{ form('login/login', 'method': 'post') }}
+{{ form('admin/login', 'method': 'post') }}
 
 <label>Username</label>
 {{ text_field("username", "size": 30) }}
