@@ -1,0 +1,1 @@
+<h1><?php echo $this->session->get('username'); ?></h1>

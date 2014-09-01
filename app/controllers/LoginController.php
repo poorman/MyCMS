@@ -9,7 +9,7 @@ class LoginController extends \Phalcon\Mvc\Controller
 
     private function _registerSession($user)
     {
-        $this->session->set('id', $user->id);
+        $this->session->set('user_id', $user->id);
         $this->session->set('username', $user->username);
     }
 
@@ -32,20 +32,18 @@ class LoginController extends \Phalcon\Mvc\Controller
                 $this->flash->success('Welcome ' . $user->username);
                 echo "Logged in: " . $this->session->get('username');
 
-                //Forward to the 'invoices' controller if the user is valid
+
+                echo "redirecting";
+                //redirect to a webpage
+                $response = new \Phalcon\Http\Response();
+                return $response->redirect("admin/index");
+
             } else {
                 $this->flash->error('Wrong email/password');
-                echo "Not logged in";
             }
 
         }
 
-        /*/Forward to the login form again
-        return $this->dispatcher->forward(array(
-            'controller' => 'session',
-            'action' => 'index'
-        ));
-        //*/
     }
 
 }
