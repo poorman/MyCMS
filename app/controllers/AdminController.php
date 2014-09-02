@@ -43,7 +43,7 @@ class AdminController extends \Phalcon\Mvc\Controller
 
     public function logoutAction() {
         $this->session->destroy();
-        return (new \Phalcon\Http\Response())->redirect('loging');
+        return (new \Phalcon\Http\Response())->redirect('admin');
     }
 
     public function newpostAction() {
@@ -52,6 +52,11 @@ class AdminController extends \Phalcon\Mvc\Controller
             //Receiving the variables sent by POST
             $title = $this->request->getPost('title');
             $content = $this->request->getPost('content');
+
+            if (!$title && !$content) {
+
+                return (new \Phalcon\Http\Response)->redirect('admin');
+            }
 
             //admin is logged in
             if ($this->session->get('user_id')) {
