@@ -1,8 +1,17 @@
-.content {
-    text-align: center;
+header {
+    background-color: #bce8f1;
 }
 
-form {
-    width: 450px;
-    text-align: center;
+body {
+    background-color: #e6e6e6;
+}
+
+.content {
+    text-align: left;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.post-list {
+
 }

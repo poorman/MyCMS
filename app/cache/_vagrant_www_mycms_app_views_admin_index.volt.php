@@ -4,23 +4,13 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title> - My Webpage</title>
+    <title>MyCMS - Dashboard</title>
 </head>
 
 <body>
 
 <div class="content">
     <h1>Welcome, <?php echo $this->session->get('username'); ?></h1>
-
-    <form role="form">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Title">
-        </div>
-        <div class="form-group">
-            <textarea class="form-control" rows="3" placeholder="Content"></textarea>
-        </div>
-        <button type="submit" class="btn btn-default btn-primary pull-right">Post</button>
-    </form>
 
     <div role="form">
         <?php echo $this->tag->form(array('admin/newpost', 'method' => 'post')); ?>

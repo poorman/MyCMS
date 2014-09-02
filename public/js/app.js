@@ -1,4 +1,4 @@
-var app = angular.module('mycms',[]);
+var app = angular.module('mycms',['truncate']);
 
 var baseURL = '/MyCMS';
 
