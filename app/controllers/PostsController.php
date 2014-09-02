@@ -13,9 +13,10 @@ class PostsController extends \Phalcon\Mvc\Controller
         while ($posts->valid()) {
             $post = $posts->current();
 
-            array_push($post_array,array(
+            array_unshift($post_array,array(
                 'title'     => $post->getTitle(),
-                'content'   => $post->getContent()
+                'content'   => $post->getContent(),
+                'id'        => $post->id()
             ));
             $posts->next();
         }

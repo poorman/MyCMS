@@ -31,7 +31,7 @@ class Posts extends \Phalcon\Mvc\Model {
     }
 
     public function id() {
-        return $gthis->id;
+        return $this->id;
     }
 
 }

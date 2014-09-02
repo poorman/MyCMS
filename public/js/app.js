@@ -11,7 +11,6 @@ app.factory('Posts', function($http) {
     }
 });
 
-
 app.controller('MainCtrl',['$scope', 'Posts',
     function($scope,Posts) {
         $scope.hello = "Hello, Phalcon!";
@@ -20,5 +19,12 @@ app.controller('MainCtrl',['$scope', 'Posts',
             $scope.posts = data;
             console.log($scope.posts);
         });
+
+}]);
+
+app.controller('PostCtrl',['$scope', '$stateParams',
+    function($scope,$stateParams) {
+        $scope.postId = $stateParams.postId;
+        $scope.hello = "Post "+$scope.postId;
 
 }]);

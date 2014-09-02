@@ -10,11 +10,11 @@
 
 <body ng-app="mycms">
 
-<div ng-controller="MainCtrl">
+<div class="content" ng-controller="MainCtrl">
     {{hello}}
     <ul>
         <li ng-repeat="post in posts">
-            <h3>{{post.title}}</h3>
+            <?php echo Phalcon\Tag::linkTo('post/{{post.id}}','<h3>{{post.title}}</h3>'); ?>
             {{post.content}}
         </li>
     </ul>
