@@ -7,6 +7,9 @@ app.factory('Posts', function($http) {
     return {
         getPosts        : function() {
             return $http.get(baseURL+'/posts');
+        },
+        getPostById     : function(id) {
+            return $http.get(baseURL+"/posts/post/"+id);
         }
     }
 });

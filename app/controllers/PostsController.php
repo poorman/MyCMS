@@ -25,5 +25,21 @@ class PostsController extends \Phalcon\Mvc\Controller
 
     }
 
-}
+    public function postAction($id) {
 
+        $post = Posts::findFirst($id);
+
+        if (! $post) {
+            return (new \Phalcon\Http\Response)->setContent(json_encode(array(
+                'message'   => "post doesn't exist"
+            )));
+        }
+
+        return (new \Phalcon\Http\Response)->setContent(json_encode(array(
+            'id'        => $id,
+            'title'     => $post->getTitle(),
+            'content'   => $post->getContent()
+        )));
+    }
+
+}
