@@ -30,16 +30,16 @@ class PostsController extends \Phalcon\Mvc\Controller
         $post = Posts::findFirst($id);
 
         if (! $post) {
-            return (new \Phalcon\Http\Response)->setContent(json_encode(array(
-                'message'   => "post doesn't exist"
-            )));
+            return (new \Phalcon\Http\Response)
+                            ->setStatusCode(404,"Not Found")
+                            ->setContent("Not Found");
         }
 
-        return (new \Phalcon\Http\Response)->setContent(json_encode(array(
-            'id'        => $id,
-            'title'     => $post->getTitle(),
-            'content'   => $post->getContent()
-        )));
+        $this->view->pick('posts/post');
+        $this->view->title = $post->getTitle();
+        $this->view->content = $post->getContent();
+        $this->view->id = $id;
+
     }
 
 }
