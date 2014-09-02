@@ -45,4 +45,26 @@ class AdminController extends \Phalcon\Mvc\Controller
         $this->session->destroy();
         return (new \Phalcon\Http\Response())->redirect('loging');
     }
+
+    public function newpostAction() {
+        if ($this->request->isPost()) {
+
+            //Receiving the variables sent by POST
+            $title = $this->request->getPost('title');
+            $content = $this->request->getPost('content');
+
+            //admin is logged in
+            if ($this->session->get('user_id')) {
+                $post = new Posts();
+                $post->setTitle($title);
+                $post->setContent($content);
+                $post->save();
+
+                return (new \Phalcon\Http\Response)->redirect('admin');
+            } else {
+                $this->flash->error('Not logged in');
+            }
+
+        }
+    }
 }
