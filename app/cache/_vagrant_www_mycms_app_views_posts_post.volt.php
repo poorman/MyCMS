@@ -15,7 +15,7 @@
 <header>
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav header-menu">
-            <li><?php echo $this->tag->linkTo(array('', 'Home')); ?></li>
+            <li><?php echo $this->tag->linkTo(array('/', 'Home')); ?></li>
             <li><a href="#/about">About</a></li>
         </ul>
     </div>
@@ -24,8 +24,22 @@
 <div class="content">
     <h2><?php echo $title; ?></h2>
     <?php echo $content; ?>
-    <button class="btn btn-primary">Lll</button>
 
+    <hr>
+    <div class="comment-form">
+        <?php echo $this->tag->form(array('comment', 'method' => 'post', 'role' => 'form')); ?>
+        <?php echo $this->tag->textField(array('name', 'class' => 'form-control', 'placeholder' => 'Your Name')); ?>
+
+        <?php echo $this->tag->emailField(array('email', 'class' => 'form-control', 'placeholder' => 'Your email')); ?>
+
+        <?php echo $this->tag->textArea(array('comment', 'class' => 'form-control', 'placeholder' => 'Comment', 'rows' => 4)); ?>
+
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <?php echo $this->tag->submitButton(array('Post', 'class' => 'btn btn-primary pull-right')); ?>
+
+        </form>
+
+    </div>
 </div>
 </body>
 </html>

@@ -11,7 +11,6 @@
 
 <header>
     <div class="collapse navbar-collapse">
-        Welcome, <?php echo $this->session->get('username'); ?>
         <ul class="nav navbar-nav header-menu pull-right">
             <li><?php echo $this->tag->linkTo(array('admin/logout', 'Logout')); ?></li>
         </ul>
