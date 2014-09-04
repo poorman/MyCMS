@@ -4,7 +4,7 @@ class Comments extends \Phalcon\Mvc\Model {
     private $id;
     private $commenter_name;
     private $commenter_email;
-    private $commenter_content;
+    private $comment_content;
 
     public function initialize() {
         $this->hasOne('id','PostComments','comment_id');
@@ -31,10 +31,10 @@ class Comments extends \Phalcon\Mvc\Model {
     }
 
     public function getContent() {
-        return $this->commenter_content;
+        return $this->comment_content;
     }
 
     public function setContent($content) {
-        $this->commenter_content = $content;
+        $this->comment_content = $content;
     }
 }
