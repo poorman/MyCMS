@@ -40,6 +40,22 @@ class PostsController extends \Phalcon\Mvc\Controller
         $this->view->content = $post->getContent();
         $this->view->id = $id;
 
+        //select all comments for the post
+        $comments = PostComments::find(array(
+            'conditions'    => 'post_id = ?1',
+            'bind'          => array(1 => $id)
+        ));
+
+        $comment_array = array();
+        foreach ($comments as $c) {
+            $comment = Comments::findFirst($c->getCommentId());
+            array_push($comment_array, array(
+                'commenter'     => $comment->getName(),
+                'content'       => $comment->getContent()
+            ));
+        }
+
+        $this->view->comments = $comment_array;
     }
 
 }

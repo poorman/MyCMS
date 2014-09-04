@@ -26,6 +26,16 @@
     <?php echo $content; ?>
 
     <hr>
+
+    <div class="comment-list">
+        <?php foreach ($comments as $comment) { ?>
+        <div class="comment-item">
+            <p><strong><?php echo $comment['commenter']; ?></strong></p>
+            <p><?php echo $comment['content']; ?></p>
+        </div>
+        <?php } ?>
+    </div>
+    <hr>
     <div class="comment-form">
         <?php echo $this->tag->form(array('comment', 'method' => 'post', 'role' => 'form')); ?>
         <?php echo $this->tag->textField(array('name', 'class' => 'form-control', 'placeholder' => 'Your Name')); ?>

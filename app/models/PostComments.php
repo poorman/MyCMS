@@ -6,6 +6,7 @@ class PostComments extends \Phalcon\Mvc\Model {
     private $comment_id;
 
     public function initialize() {
+        $this->setSource("post_comments");
         $this->belongsTo('post_id','Posts','id');
         $this->belongsTo('comment_id','Comments','id');
     }
@@ -14,9 +15,20 @@ class PostComments extends \Phalcon\Mvc\Model {
         $this->post_id = $id;
     }
 
+    public function getPostId() {
+        return $this->post_id;
+    }
+
     public function setCommentId($id) {
         $this->comment_id = $id;
     }
 
+    public function getCommentId() {
+        return $this->comment_id;
+    }
+
+    public function id() {
+        return $this->id;
+    }
 
 }

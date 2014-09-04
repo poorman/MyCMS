@@ -26,6 +26,16 @@
     {{content}}
 
     <hr>
+
+    <div class="comment-list">
+        {% for comment in comments %}
+        <div class="comment-item">
+            <p><strong>{{ comment['commenter'] }}</strong></p>
+            <p>{{ comment['content'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
     <div class="comment-form">
         {{form('comment', 'method': 'post', 'role': 'form')}}
         {{text_field('name',
