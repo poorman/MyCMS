@@ -1,9 +1,18 @@
 #MyCMS
-MyCMS is a simple CMS-like web application written in Phalcon (back-end) and AngularJS (front-end), that allows the admin to write posts from an admin panel/dashboard.
+MyCMS is a simple weblogging application written in Phalcon (back-end) and AngularJS (front-end), that allows the admin to write posts from an admin panel/dashboard.
 
 ##How to test it
 During the development, I am using the [Phalcon Vagrant](https://github.com/phalcon/vagrant) configuration. Clone/download the source code into the /vagrant/www/MyCMS folder of the Vagrant configuration and then you can test MyCMS in http://192.168.50.4/MyCMS/
 
-Administrator credentials:
+Probably you will need to execute this if you use the same vagrant configuration:
+```bash
+sudo chmod -R 777 /var/lib/php5
+```
+
+Or, you can read through this [Sitepoint article](http://www.sitepoint.com/quick-tip-install-zephir-phalcon-2-vagrant/) to install Phalcon in a vagrant box and the source code should work.
+
+##Administrator credentials:
+```
 username: admin
 password: admin
+```
