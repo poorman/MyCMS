@@ -3,8 +3,6 @@
 <head>
     <title><?php echo $title; ?></title>
 
-    <script src="js/angular.min.js"></script>
-
     <?php echo $this->tag->stylesheetLink('css/bootstrap.min.css'); ?>
     <?php echo $this->tag->stylesheetLink('css/style.css'); ?>
 </head>

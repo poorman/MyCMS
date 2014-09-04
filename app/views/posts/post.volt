@@ -3,8 +3,6 @@
 <head>
     <title>{{title}}</title>
 
-    <script src="js/angular.min.js"></script>
-
     {{stylesheet_link("css/bootstrap.min.css")}}
     {{stylesheet_link("css/style.css")}}
 </head>

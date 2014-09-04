@@ -5,13 +5,13 @@ use Phalcon\Db\Index;
 use Phalcon\Db\Reference;
 use Phalcon\Mvc\Model\Migration;
 
-class CommentsMigration_100 extends Migration
+class UsersMigration_100 extends Migration
 {
 
     public function up()
     {
         $this->morphTable(
-            'comments',
+            'users',
             array(
             'columns' => array(
                 new Column(
@@ -26,30 +26,21 @@ class CommentsMigration_100 extends Migration
                     )
                 ),
                 new Column(
-                    'commenter_name',
-                    array(
-                        'type' => Column::TYPE_VARCHAR,
-                        'notNull' => true,
-                        'size' => 30,
-                        'after' => 'id'
-                    )
-                ),
-                new Column(
-                    'commenter_email',
+                    'username',
                     array(
                         'type' => Column::TYPE_VARCHAR,
                         'notNull' => true,
                         'size' => 20,
-                        'after' => 'commenter_name'
+                        'after' => 'id'
                     )
                 ),
                 new Column(
-                    'comment_content',
+                    'password',
                     array(
-                        'type' => Column::TYPE_TEXT,
+                        'type' => Column::TYPE_VARCHAR,
                         'notNull' => true,
-                        'size' => 1,
-                        'after' => 'commenter_email'
+                        'size' => 40,
+                        'after' => 'username'
                     )
                 )
             ),
@@ -58,11 +49,16 @@ class CommentsMigration_100 extends Migration
             ),
             'options' => array(
                 'TABLE_TYPE' => 'BASE TABLE',
-                'AUTO_INCREMENT' => '13',
+                'AUTO_INCREMENT' => '2',
                 'ENGINE' => 'InnoDB',
                 'TABLE_COLLATION' => 'latin1_swedish_ci'
             )
         )
+        );
+
+        self::$_connection->insert('users',
+            array('admin', md5('admin')),
+            array('username','password')
         );
     }
 }

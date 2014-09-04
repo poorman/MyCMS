@@ -26,7 +26,7 @@ class AdminController extends \Phalcon\Mvc\Controller
             //Find the user in the database
             $user = Users::findFirst(array(
                 "username = :username: AND password = :password: ",
-                "bind" => array('username' => $username, 'password' => $password)
+                "bind" => array('username' => $username, 'password' => md5($password))
             ));
 
             if ($user != false) {
